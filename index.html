@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Marriage isn’t Dead-Yet</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body style="background-color: white" background="Resources\images\marriage1.jpg">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- emply col to move over text -->
+        <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
+          <a class="navbar-brand" href="index.html" style="color: black">
+            <span class="nav-color" style="font-weight: bold; font-size: large">Home</span>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+           <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-weight: bold; font-size: large">Analysis <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="Visualizations/ByState.html">By State</a></li>
+                <li><a href="Visualizations/ByEducation.html">By Education</a></li>
+                <li><a href="Visualizations/AcrossUS.html">Across US</a></li>
+              </ul>
+           </li>
+          </ul>    
+        </div>
+      </div>
+    </div>        
+  </nav>   
+  
+  <!--main grid-->
+  <div class= "container-fluid">    
+    <div class= "row">    
+      <div class= "col-md-12">    
+        <div class= "main-box">
+          <!-- <div class="bloc-logo"> -->
+            <script src="Visualizations/granim.js"></script>
+              <canvas id="logo-canvas"></canvas>
+                <!-- <a href="index.html" class="logo-mask">Marriage isn’t Dead-Yet</a> -->
+                <h2 style="color:white; ">Marriage isn’t Dead-Yet</h2>
+          <!-- </div>     -->
+                <hr>    
+                <div class= "summary txt">        
+                  <p style="color: white;font-size: medium;">    
+                    Marriages in India are between two families, rather two individuals, arranged marriages are  customary.<br>
+                    Marriage and motherhood are the primary status roles for women. <br>
+                    Societal norms are  powerful and often override the legislative provisions in real life situations.<br>
+                    This led us to analyse , Marriage and Divorce trend in America.<br>
+                    With different combinations and  details based on census we will visualise the data for understanding the trend.<br>
+                  </p>
+                  <img id= "main-img" src= "Resources\images\map.jpg", style="width:40%; float: left; margin: 15px;", alt= "marriage rate in USA"> 
+                  <p style="color: black;font-size: medium;font-weight: bold;">    
+                    In 1960, nearly 90 percent of 25- to 34-year olds had been married; today, that figure is barely 50 percent.<br>
+                    The trend is remarkably broad, cutting across race, education, income and other characteristics.<br>
+                  </p>
+                </div>    
+        </div>    
+      </div>     
+    </div>    
+  </div>   
+  <!--Footer-->
+  <div class= "container-fluid bottom-footer page-footer">    
+    <div class= "row">    
+      <div class= "col text-center"></div>    
+        <p id="footer-txt" style="text-align:left;">
+          &copy; <i>Copyright Coding Bootcamp 2020</i>            
+        </p>    
+      </div>    
+    </div>    
+  </div>    
+</body>    
+</html>
