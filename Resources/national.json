@@ -1,0 +1,112 @@
+[
+    {
+      "Divorce_Rate": 4.8, 
+      "Marriage_Rate": 11.6, 
+      "Year": 1990
+    }, 
+    {
+      "Divorce_Rate": 4.2, 
+      "Marriage_Rate": 10.3, 
+      "Year": 1995
+    }, 
+    {
+      "Divorce_Rate": 3.9, 
+      "Marriage_Rate": 9.9, 
+      "Year": 1999
+    }, 
+    {
+      "Divorce_Rate": 4, 
+      "Marriage_Rate": 8.2, 
+      "Year": 2000
+    }, 
+    {
+      "Divorce_Rate": 4, 
+      "Marriage_Rate": 8.2, 
+      "Year": 2001
+    }, 
+    {
+      "Divorce_Rate": 3.9, 
+      "Marriage_Rate": 8, 
+      "Year": 2002
+    }, 
+    {
+      "Divorce_Rate": 3.8, 
+      "Marriage_Rate": 7.7, 
+      "Year": 2003
+    }, 
+    {
+      "Divorce_Rate": 3.7, 
+      "Marriage_Rate": 7.8, 
+      "Year": 2004
+    }, 
+    {
+      "Divorce_Rate": 3.6, 
+      "Marriage_Rate": 7.6, 
+      "Year": 2005
+    }, 
+    {
+      "Divorce_Rate": 3.7, 
+      "Marriage_Rate": 7.5, 
+      "Year": 2006
+    }, 
+    {
+      "Divorce_Rate": 3.6, 
+      "Marriage_Rate": 7.3, 
+      "Year": 2007
+    }, 
+    {
+      "Divorce_Rate": 3.5, 
+      "Marriage_Rate": 7.1, 
+      "Year": 2008
+    }, 
+    {
+      "Divorce_Rate": 3.5, 
+      "Marriage_Rate": 6.8, 
+      "Year": 2009
+    }, 
+    {
+      "Divorce_Rate": 3.6, 
+      "Marriage_Rate": 6.8, 
+      "Year": 2010
+    }, 
+    {
+      "Divorce_Rate": 3.6, 
+      "Marriage_Rate": 6.8, 
+      "Year": 2011
+    }, 
+    {
+      "Divorce_Rate": 3.4, 
+      "Marriage_Rate": 6.8, 
+      "Year": 2012
+    }, 
+    {
+      "Divorce_Rate": 3.3, 
+      "Marriage_Rate": 6.8, 
+      "Year": 2013
+    }, 
+    {
+      "Divorce_Rate": 3.2, 
+      "Marriage_Rate": 6.9, 
+      "Year": 2014
+    }, 
+    {
+      "Divorce_Rate": 3.1, 
+      "Marriage_Rate": 6.9, 
+      "Year": 2015
+    }, 
+    {
+      "Divorce_Rate": 3, 
+      "Marriage_Rate": 7, 
+      "Year": 2016
+    }, 
+    {
+      "Divorce_Rate": 2.9, 
+      "Marriage_Rate": 6.9, 
+      "Year": 2017
+    }, 
+    {
+      "Divorce_Rate": 2.7, 
+      "Marriage_Rate": 7.0, 
+      "Year": 2018
+    }
+  ]

@@ -45,8 +45,8 @@ def NationalMarriageDivorce():
     for Year,MarriageRate,DivorceRate in results:
         nat_dict = {}
         nat_dict["Year"] = Year
-        nat_dict["Marriage Rate"] = MarriageRate
-        nat_dict["Divorce Rate"] = DivorceRate
+        nat_dict["Marriage_Rate"] = MarriageRate
+        nat_dict["Divorce_Rate"] = DivorceRate
         national.append(nat_dict)
 
     return jsonify(national)

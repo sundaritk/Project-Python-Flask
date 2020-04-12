@@ -51,7 +51,7 @@ var countryById = d3.map();
 
 // we use queue because we have 2 data files to load.
 queue()
-    .defer(d3.json, "USA.json")
+    .defer(d3.json, "Resources/USA.json")
     .defer(d3.json, file_name) // process
     .await(loaded);
 
@@ -201,7 +201,7 @@ console.log(dataYear);
 };
 // var strMarriage=`http://127.0.0.1:5000/api/v1.0/MarriageByState`;
 
-main('avg',"state_marriage.JSON");
+main('avg',"Resources/state_marriage.JSON");
 headGranim();
 
 function headGranim(){
