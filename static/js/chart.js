@@ -14,8 +14,8 @@ main(inputValue_date,file_name)
 })};
 function main(inputValue_date,file_name){
 // console.log(inputValue_date);
-var width = 800;
-    height = 700;
+var width = 700;
+    height = 540;
 
 var tip = d3.tip()
   .attr('class', 'd3-tip')
@@ -51,8 +51,9 @@ var countryById = d3.map();
 
 // we use queue because we have 2 data files to load.
 queue()
-    .defer(d3.json, "Resources/USA.json")
-    .defer(d3.json, file_name) // process
+    .defer(d3.json, "api/v1.0/USA")
+    .defer(d3.json, file_name) 
+    .defer(d3.json, "/api/v1.0/NationalMarriageDivorce")  // process
     .await(loaded);
 
 function getColor(d) {
@@ -70,7 +71,7 @@ function getColor(d) {
 }
 
 
-function loaded(error, usa, un) {
+function loaded(error, usa, un,nt) {
 
 if (error) throw error;
 
@@ -180,7 +181,8 @@ console.log(dataYear);
             // console.log(d.properties.name);
             return getColor(d);
         })
-        .append("title");
+        .append("title")
+        .text("test");
 
     var linear = colorScale;
     
@@ -192,16 +194,41 @@ console.log(dataYear);
       .shapeWidth(30)
       .orient('horizontal')
       .scale(linear);
-
     svg.select(".legendLinear")
       .call(legendLinear);
+    
+  svg.append("text")
+      .attr("class", "title")
+      .attr("x", width/2)
+      .attr("y", (height/8))
+      .attr("text-anchor", "middle")
+      .text(function(d){
+          console.log(file_name);
+          if(file_name=='/api/v1.0/MarriageByState') {
+              return "Marriage "+ inputValue_date;
+          }
+          else{
+            return "Divorce "+ inputValue_date;
+          }
 
+         
+      } 
+      );
+      if(inputValue_date=='avg'){
+        lineGraph(nt);
+        console.log()
+    }
+    else{
+    barGraph(un,inputValue_date);
+    }
+      
 }
+
 
 };
 // var strMarriage=`http://127.0.0.1:5000/api/v1.0/MarriageByState`;
 
-main('avg',"Resources/state_marriage.JSON");
+main('avg',"/api/v1.0/MarriageByState");
 headGranim();
 
 function headGranim(){
@@ -223,3 +250,100 @@ function headGranim(){
     granimInstance.play();
 }
 
+function lineGraph(rates){
+    // Load json data
+// d3.json("Resources/national.json").then(function(rates) {
+    console.log(rates);
+    // convert dict to list
+    Year = [];
+    Mrate = [];
+    Drate = [];
+    for (var i = 0; i < rates.length; i++ ) {
+              Year.push(rates[i].Year);
+              Mrate.push(rates[i].Marriage_Rate)
+              Drate.push(rates[i].Divorce_Rate)
+          }
+    console.log(Year);
+  // define X & Y axsis
+    var trace1 = {
+      x: Year,
+      y:Mrate,
+      mode: 'lines+markers',
+      name: 'Marriage Rate'
+    }; 
+    var trace2 = {
+      x: Year,
+      y: Drate,
+      mode: 'lines+markers',
+      name: 'Divorce Rate'
+    };
+    var data = [trace1,trace2];
+    var layout = {
+      title: 'Marriage Vs Divorce Rate',
+      xaxis: {
+        title: 'Year'
+      },
+      yaxis: {
+        title: 'Rates'
+      }
+    };
+   //Map 
+    return(Plotly.newPlot('line', data, layout));
+  };
+// Load json data
+function barGraph(data) {
+    console.log(data);
+    // convert dict to list
+    Rate = [];
+    State = [];
+    for (var i = 0; i < data.length; i++ ) {
+              Rate.push(data[i].dataYear);
+              State.push(data[i].state)
+          }
+    console.log(Year);
+  // define X & Y axsis
+    var trace1 = {
+      x: State,
+      y: Rate,
+      type: 'bar',
+      name: 'Marriage Rate'
+    }; 
+    // var trace2 = {
+    //   x: Year,
+    //   y: Drate,
+    //   type: 'bar',
+    //   name: 'Divorce Rate'
+    // };
+    var data = [trace1];
+    var layout = {
+      title: 'State',
+      xaxis: {tickfont: {
+          size: 14,
+          color: 'rgb(107, 107, 107)'
+        }},
+      yaxis: {
+        title: 'Rates',
+        titlefont: {
+          size: 16,
+          color: 'rgb(107, 107, 107)'
+        },
+        tickfont: {
+          size: 14,
+          color: 'rgb(107, 107, 107)'
+        }
+      },
+      legend: {
+        x: 0,
+        y: 1.0,
+        bgcolor: 'rgba(255, 255, 255, 0)',
+        bordercolor: 'rgba(255, 255, 255, 0)'
+      },
+      barmode: 'group',
+      bargap: 0.15,
+      bargroupgap: 0.1,
+      title: 'Marriage Vs Divorce'
+      // ,margin=dict(l=50,r=50,b=100,t=100,pad=4)
+    };
+   //Map 
+    Plotly.newPlot('line', data, layout);
+};

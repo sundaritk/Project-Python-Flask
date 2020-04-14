@@ -26,7 +26,7 @@ app = Flask(__name__)
 
 
 # 3. Define what to do when a user hits the index route
-@app.route("/")
+@app.route("/index.html")
 def index():
     return render_template("index.html")
 
@@ -137,6 +137,13 @@ def DState():
 
     return jsonify(DivorceState)
 
+@app.route("/api/v1.0/USA")
+def USA():
+    import json
 
+    with open('Resources/USA.json') as f:
+        data = json.load(f)
+
+    return data
 if __name__ == "__main__":
     app.run(debug=True)
