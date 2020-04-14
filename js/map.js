@@ -23,7 +23,7 @@ var tip = d3.tip()
   .html(function(d) {
     var dataRow = countryById.get(d.properties.name);
        if (dataRow) {
-        //    console.log(dataRow);
+           console.log(dataRow);
            return dataRow.state + ": " + dataRow.dataYear;
        } else {
            console.log("no dataRow", d);
@@ -59,7 +59,7 @@ function getColor(d) {
     var dataRow = countryById.get(d.properties.name);
     // console.log(dataRow);
     if (dataRow) {
-        console.log(colorScale(dataRow.dataYear));
+        // console.log(colorScale(dataRow.dataYear));
         return colorScale(dataRow.dataYear);
     } else {
         // alert("No Data");
@@ -162,7 +162,7 @@ for (var i=0; i<51; i++){
 console.log(dataYear);
 
     colorScale.domain(d3.extent(un, function(d) {
-        console.log(d.dataYear);
+        // console.log(d.dataYear);
         return d.dataYear;}));
 
 
@@ -181,7 +181,7 @@ console.log(dataYear);
             return getColor(d);
         })
         .append("title");
-
+console.log(tip.show);
     var linear = colorScale;
     
     svg.append("g")
