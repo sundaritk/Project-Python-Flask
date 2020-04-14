@@ -7,6 +7,9 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 from datetime import datetime
 import datetime as dt
+# from app import app
+
+from flask import render_template
 
 engine = create_engine("sqlite:///Resources/data/marriage_data.sqlite")
 # reflect an existing database into a new model
@@ -24,6 +27,11 @@ app = Flask(__name__)
 
 # 3. Define what to do when a user hits the index route
 @app.route("/")
+def index():
+    return render_template("index.html")
+
+
+@app.route("/about")
 def home():
     print("Server received request for 'Home' page...")
     return (f"Available Routes:<br/> Convert the query results to a Dictionary using date as the key and prcp as the value. <br/>"
@@ -52,7 +60,7 @@ def NationalMarriageDivorce():
     return jsonify(national)
 
 @app.route("/api/v1.0/MarriageByState")
-def stations():
+def MState():
     
     # Query
     session = Session(engine)
@@ -93,7 +101,7 @@ def stations():
 
 
 @app.route("/api/v1.0/DivorceByState")
-def weather():
+def DState():
     # Query
     session = Session(engine)
     results = session.query(DivorceByState.state,DivorceByState.avg,DivorceByState.Year_2018,DivorceByState.Year_2017,DivorceByState.Year_2016,DivorceByState.Year_2015,DivorceByState.Year_2014,DivorceByState.Year_2013,DivorceByState.Year_2012,DivorceByState.Year_2011,DivorceByState.Year_2010,DivorceByState.Year_2009,DivorceByState.Year_2008,DivorceByState.Year_2007,DivorceByState.Year_2006,DivorceByState.Year_2005,DivorceByState.Year_2004,DivorceByState.Year_2003,DivorceByState.Year_2002,DivorceByState.Year_2001,DivorceByState.Year_2000,DivorceByState.Year_1999,DivorceByState.Year_1995,DivorceByState.Year_1990).all()
