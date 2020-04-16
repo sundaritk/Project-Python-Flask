@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+<style>
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    padding: 40px;
+}
+h1{
+  font-size: 3em;
+  font-weight: 700;
+  color: #0099FF;
+}
+a{
+  color: #333399;
+}
+a:hover{
+  color: #FF0099;
+}
+
+.states {
+    stroke: #fff;
+    stroke-width:1px;
+}
+.states:hover{
+  opacity: .6;
+}
+
+.legendLinear text {
+    font-size: 12px;
+}
+.d3-tip {
+  line-height: 1;
+  padding: 12px;
+  background: rgba(43,43,43, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+.bloc-logo canvas,
+.bloc-logo .logo-mask {
+    display: block;
+    width: 100%;
+    height: 100px;
+    font-weight:5 00px;
+    color: #fff;
+}
+
+.bloc-logo .logo-mask {
+  position: absolute;
+    display: block;
+    top: 25px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    font-family: Impact, Charcoal, sans-serif;
+    text-decoration: none;
+    color: black;
+}
+</style>
+<body>
+  <div class="container-fluid">
+    <div class="row rowheader">
+    <div class="col-md-12">  
+      <div class="bloc-logo">
+        <canvas id="logo-canvas"></canvas>
+        <a href="index.html" class="logo-mask"><h2>Marriage isn't Dead Yet</h2></a>
+    </div>
+</div>
+</div>
+</div>
+<div class="container-fluid">
+  <h4>Team Members</h4>
+  <p class="text-dark"> <strong>Satish Nirankari and Thiripurasundari Kannappan</strong>.</p>
+  <p class="text-body">
+    Marriage is deemed essential for virtually everyone in India. 
+    For the individual, marriage is the great watershed in life, marking the transition to adulthood. 
+    Arranging a marriage is a critical responsibility for parents and other relatives of both bride and groom.
+  </p>
+  <p>
+    In Western cultures, more than 90 percent of people marry by age 50. 
+    Marriage and divorce are both common experiences.
+    However, about 40 to 50 percent of married couples in the United States divorce. 
+    The divorce rate for subsequent marriages is even higher.
+  </p>
+  <p>
+    This led us to analyse , Marriage and Divorce trend in America. 
+    With different combinations and  details based on census we will visualise the data for understanding the trend.  
+  </p>
+  <h4>Project Details</h4>
+  <ul style="list-style-type:disc;">
+    <li>CDC csv data is loaded into Sqlite database and this is read as JSON into our javascript.</li>
+    <li>Combination of D3, Plotly is used for Dashboard Visualization.</li>
+    <li>Granim.js is the new javascript library that we are using in this project for the header.</li>
+    <li>Menu with radio button for type and search button for Year are provided.</li>
+    <li>Visualization: Line Graph, Bar Graph and Colopleth Geo Map.</li>
+  </ul>
+  <h4>Conclusion</h4>
+    <p>
+      While the number of married couples in the U.S. has increased in the past few decades, this could very well just be due to population change, 
+      since while the U.S. population has been increasing, the marriage rate has decreased significantly since 1990. 
+      In addition, the divorce rate has almost halved since 1990 despite concerns that more people are getting divorced than in years past.
+    </p>
+    <p>
+      Nevada was the state in 2018 that had the highest marriage rate in the United States, due to easy accessibility to get married there.
+    </p>
+    <p>
+      Despite public opinion that divorce is becoming more frequent in the United States, the divorce rate actually seems to be declining, 
+      with Nevada being the top state for divorce in 2018, with a rate of 4.4 divorces per 1,000 of the population.
+    </p>
+  </h4>
+</div>
+<hr>
+<div class="row">
+<div class="col-md-6">
+<p>
+  <a href="http://127.0.0.1:5000/api/v1.0/about.html"target="_blank"><h6>About</h6></a>
+  <a href="http://127.0.0.1:5000/api/v1.0/index.html"target="_blank"><h6>Dashboard</h6></a>
+  <a href="https://www.cdc.gov/nchs/nvss/marriage-divorce.htm"target="_blank"><h6>Data Source</h6></a><br>
+  &copy; <i>Copyright UofM Data Bootcamp 2020</i>
+</p>
+</div>
+<div class="col-md-6">
+  <p>
+  <a href="http://127.0.0.1:5000/api/v1.0/NationalMarriageDivorce"target="_blank"><h6>National Marriage and Divorce Rates by Year - JSON Data</h6></a>
+  <a href="http://127.0.0.1:5000/api/v1.0/DivorceByState"target="_blank"><h6>Divorce Rates by State - JSON Data</h6></a>
+  <a href="http://127.0.0.1:5000/api/v1.0/MarriageByState"target="_blank"><h6>Marriage Rates by State - JSON Data</h6></a>
+  <a href="http://127.0.0.1:5000/api/v1.0/USA"target="_blank"><h6>USA Cloropleth - JSON Data</h6></a>
+  </p>
+  </div>
+</div>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/queue.v1.min.js"></script>
+<script src="../static/js/d3-legend.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<script src ="https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript"src="../static/js/charts.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>
