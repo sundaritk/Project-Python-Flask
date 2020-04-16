@@ -1,6 +1,13 @@
 # Project-2
-# Marriage isn't Dead!
-
-Source for all data is Decennial Census (years 1960 to 2000) and American Community Survey (years 2001-2012), via IPUMS USA.
-
-Except in the divorce file, figures represent share of the relevant population that has never been married (MARST == 6 in the IPUMS data). Note that in the story, charts generally show the share that have ever been married, which is simply 1 - n. In the divorce file, figures are share of the relevant population that is currently divorced, conditional on having ever been married.
+# Specific Requirements
+1.Your visualization must include a Python Flask–powered RESTful API, HTML/CSS,
+JavaScript, and at least one database (SQL, MongoDB, SQLite, etc.). 
+2.Your project should fall into one of the below four tracks: 
+  ○ A custom “creative” D3.js project (i.e., a nonstandard graph or chart)
+  ○ A combination of web scraping and Leaflet or Plotly
+  ○ A dashboard page with multiple charts that update from the same data
+  ○ A server that performs multiple manipulations on data in a database prior to visualization (must be approved)
+3.Your project should include at least one JS library that we did not cover. 
+4.Your project must be powered by a data set with at least 100 records. 
+5.Your project must include some level of user-driven interaction (e.g., menus,dropdowns, textboxes). 
+6.Your final visualization should ideally include 
