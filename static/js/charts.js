@@ -8,7 +8,7 @@ var file_name=browser;
 main(inputValue_date,file_name)
 })};
 function main(inputValue_date,file_name){
-var width = 750;
+var width = 850;
     height = 540;
 var tip = d3.tip()
   .attr('class', 'd3-tip')
@@ -28,7 +28,7 @@ var svg = d3.select('#vis').append('svg')
     .attr('height', height);
 svg.call(tip);
 var projection = d3.geo.albersUsa()
-    .scale(900) // mess with this if you want
+    .scale(950) // mess with this if you want
     .translate([width / 2, height / 2]);
 var path = d3.geo.path()
     .projection(projection);
@@ -188,10 +188,10 @@ console.log(dataYear);
       .text(function(d){
           console.log(file_name);
           if(file_name=='/api/v1.0/MarriageByState') {
-              return "Marriage " + inputValue_date + " Rates";
+              return "Marriage Rate " + inputValue_date;
           }
           else{
-            return "Divorce "+ inputValue_date + " Rates";
+            return "Divorce Rate "+ inputValue_date;
           }   
       } 
       );
@@ -260,17 +260,17 @@ function lineGraph(rates){
             zeroline: true,
             title: 'Year',
             titlefont: {
-                size: 20,
+                size: 15,
                 color: 'black'
             }
         },
         yaxis: {
-            title: 'Rates',
+            title: 'Rate per 1000 of Population',
             zeroline: true,
             rangemode: 'tozero',
             autorange: true,
             titlefont: {
-                size: 20,
+                size: 15,
                 color: 'black'
             }
         },
@@ -299,7 +299,7 @@ function lineGraph(rates){
 };
 
 // Load bar chart for the filtered search and display data by state
-function barGraph(data) {
+function barGraph(data,inputValue_date) {
     console.log(data);
     // convert dict to list
     Rate = [];
@@ -328,15 +328,15 @@ function barGraph(data) {
             zeroline: true,
             title: 'State',
             titlefont: {
-              size: 20,
+              size: 15,
               color: 'black'
             },
             tickangle: -45
         },
         yaxis: {
-            title: 'Rates',
+            title: 'Rate per 1000 of Population',
             titlefont: {
-                size: 20,
+                size: 15,
                 color: 'black'
             },
         },
@@ -351,7 +351,7 @@ function barGraph(data) {
             pad: 4
         },
         bargap: 0.15,
-        title: 'Rate by State',
+        title: 'Rate by State for ' +inputValue_date,
         titlefont: {
             size: 20,
             color: 'black'
@@ -362,5 +362,5 @@ function barGraph(data) {
 };
 
 //initial calls
-main('by Average',"/api/v1.0/MarriageByState");
 headGranim();
+main('by Average',"/api/v1.0/MarriageByState");
