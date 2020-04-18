@@ -5,8 +5,9 @@ import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
-from datetime import datetime
-import datetime as dt
+from bs4 import BeautifulSoup as bs
+import requests
+from splinter import Browser
 from flask import render_template
 
 engine = create_engine("sqlite:///Resources/data/marriage_data.sqlite")
@@ -26,14 +27,53 @@ app = Flask(__name__)
 def index1():
     return render_template("about.html")
 
-@app.route("/index.html")
+@app.route("/dashboardbystate.html")
 def index2():
-    return render_template("index.html")
+    return render_template("dashboardbystate.html")
 
 @app.route("/about.html")
 def home():
     # print("Server received request for 'Home' page...")
      return render_template("about.html")
+
+@app.route('/dashboardbyeducation.html')
+def scrape538():
+### Setting up the browser
+    executable_path={'executable_path': 'chromedriver.exe'}
+    browser = Browser('chrome', **executable_path, headless=True)
+### 538 marriage isn't dead website
+    url = 'https://fivethirtyeight.com/features/marriage-isnt-dead-yet/'
+    browser.visit(url)
+    html = browser.html
+    soup = bs(html, 'html.parser')
+### get all 'p' tag
+    results = soup.find_all('p')
+### find images
+    image1 = soup.find('img', class_='wp-image-54890')['src']
+    image2 = soup.find('img', class_='wp-image-54889')['src']
+    image3 = soup.find('img', class_='wp-image-54887')['src']
+### convert to dict
+    result = {
+        'paragraph1': results[0].text.strip(),
+        'paragraph2': results[1].text.strip(),
+        'paragraph3': results[7].text.strip(),
+        'image1': image1,
+        'paragraph4': results[11].text.strip(),
+        'paragraph5': results[12].text.strip(),
+        'paragraph6': results[13].text.strip(),
+        'paragraph7': results[17].text.strip(),
+        'paragraph8': results[18].text.strip(),
+        'paragraph9': results[20].text.strip(),
+        'image2': image2,
+        'paragraph10': results[24].text.strip(),
+        'paragraph11': results[28].text.strip(),
+        'paragraph12': results[35].text.strip(),
+        'image3': image3,
+        'paragraph13': results[37].text.strip(),
+        'paragraph14': results[40].text.strip()
+    }
+
+    return render_template('dashboardbyeducation.html', data538=result)
 
 @app.route("/api/v1.0/NationalMarriageDivorce")
 def NationalMarriageDivorce():  
