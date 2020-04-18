@@ -67,7 +67,7 @@ a:hover{
     <div class="col-md-12">  
       <div class="bloc-logo">
         <canvas id="logo-canvas"></canvas>
-        <a href="index.html" class="logo-mask"><h2>Marriage isn't Dead Yet</h2></a>
+        <a href="about.html" class="logo-mask"><h2>Marriage isn't Dead Yet</h2></a>
     </div>
 </div>
 </div>
@@ -75,12 +75,18 @@ a:hover{
 <br>
 <!-- <class="Marriage> <h3>Marriage and Divorce rates by State</h3></class>    -->
   <!-- <p>Marriage and divorce rates currently may be calculated from provisional counts received from State health departments. Trend marriage and divorce rates by State for 1990, 1995, and 1999-2018 are available</p> -->
- <class="Marriage">
+  <div class="container-fluid">
+    <div class="row rowheader">
+    <div class="col-md-12">  
+  <class="Marriage">
   <input type="radio" name="browser" onclick="myFunction(this.value)" value="/api/v1.0/MarriageByState">Marriage
   <input type="radio" name="browser" onclick="myFunction(this.value)" value="/api/v1.0/DivorceByState">Divorce
   <input class="searchBox" id="Year" type="text" placeholder="2018" maxlength="4" size="4">
   <button id="filter-btn" type="button" >Search</button>
 </class> 
+</div>
+</div>
+</div>
 <div class="container-fluid">
   <div class="row rowmain">
     <div class="col-md-6">  
