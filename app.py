@@ -24,7 +24,7 @@ app = Flask(__name__)
 # Define what to do when a user a specific route
 @app.route("/")
 def index1():
-    return render_template("index.html")
+    return render_template("about.html")
 
 @app.route("/index.html")
 def index2():
