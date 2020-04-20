@@ -14,12 +14,13 @@ by @sundaritk
 6. Your final visualization should ideally include at least three views.
 
 
+##### To Run the Code
 
-#####To Run the Code
 You may or may not need the following installs
-pip install -U Flask-SQLAlchemy
-pip install splinter
-pip install beautifulsoup4
-pip install jsonify
-pip install jsonlib
-pip install requests
+
+- pip install -U Flask-SQLAlchemy
+- pip install splinter
+- pip install beautifulsoup4
+- pip install jsonify
+- pip install jsonlib
+- pip install requests
