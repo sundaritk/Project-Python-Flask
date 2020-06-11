@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+<style>
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    padding: 40px;
+}
+h1{
+  font-size: 3em;
+  font-weight: 700;
+  color: #0099FF;
+}
+a{
+  color: #333399;
+}
+a:hover{
+  color: #FF0099;
+}
+
+.states {
+    stroke: #fff;
+    stroke-width:1px;
+}
+.states:hover{
+  opacity: .6;
+}
+
+.legendLinear text {
+    font-size: 12px;
+}
+.d3-tip {
+  line-height: 1;
+  padding: 12px;
+  background: rgba(43,43,43, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+.bloc-logo canvas,
+.bloc-logo .logo-mask {
+    display: block;
+    width: 100%;
+    height: 100px;
+    font-weight:5 00px;
+    color: #fff;
+}
+
+.bloc-logo .logo-mask {
+  position: absolute;
+    display: block;
+    top: 25px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    font-family: Impact, Charcoal, sans-serif;
+    text-decoration: none;
+    color: black;
+}
+</style>
+<body>
+  <div class="container-fluid">
+    <div class="row rowheader">
+    <div class="col-md-12">  
+      <div class="bloc-logo">
+        <canvas id="logo-canvas"></canvas>
+        <a href="about.html" class="logo-mask"><h2>Marriage isn't Dead Yet</h2></a>
+    </div>
+</div>
+</div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3"><br>
+        <strong><h6 class="bold-text"> Sep. 29, 2014 at 1:09 PM <br>
+          {{ data538['paragraph2'] }}</h6></strong><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+        <p>{{ data538['paragraph3'] }}</p>
+        <p>{{ data538['paragraph4'] }}</p>
+      <br>
+    </div>
+    <div class="col-md-6">
+      <img src=" {{data538['image1']}}" alt="" width="50%">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <p>{{ data538['paragraph5'] }}&nbsp;
+      {{ data538['paragraph6'] }}&nbsp;
+      {{ data538['paragraph7'] }}</p>
+        <p>{{ data538['paragraph8'] }}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6">
+      <p><img src=" {{data538['image2']}}" alt="" width="50%"><br></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <p>{{ data538['paragraph9'] }}</p>
+      <p>{{ data538['paragraph10'] }}</p>
+      <p>{{ data538['paragraph11'] }}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <p>{{ data538['paragraph12'] }}</p>
+      <p>{{ data538['paragraph13'] }}</p>
+      <p>{{ data538['paragraph14'] }}</p>
+    </div>
+    <div class="col-md-6">
+      <img src=" {{data538['image3']}}" alt="" height=420 width="400">
+    </div>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-6">
+    <p>
+      <a href="about.html"><h6>About</h6></a>
+      <a href="dashboardbystate.html"><h6>Dashboard by State</h6></a>
+      <a href="https://fivethirtyeight.com/features/marriage-isnt-dead-yet/"target="_blank"><h6>Web Scraping - Data Source</h6></a><br>
+      &copy; <i>Copyright UofM Data Bootcamp 2020</i>
+    </p>
+  </div>
+</div>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/queue.v1.min.js"></script>
+<script src="../static/js/d3-legend.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<script src ="https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript"src="../static/js/charts.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
