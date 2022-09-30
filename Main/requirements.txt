@@ -87,7 +87,7 @@ jdcal==1.4.1
 jedi==0.14.1
 jellyfish==0.5.6
 Jinja2==2.10.3
-joblib==0.14.0
+joblib==1.2.0
 json5==0.8.5
 jsonpatch==1.25
 jsonpointer==2.0
